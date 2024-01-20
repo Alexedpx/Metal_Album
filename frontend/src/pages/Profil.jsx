@@ -8,6 +8,7 @@ import { TiEdit } from "react-icons/ti";
 export default function Profil() {
   const { userConnected, setUserConnected } = useContext(userContext);
   const [deleteUser, setDeleteUser] = useState(userConnected);
+  const [userUpdate, setUserUpdate] = useState(userConnected);
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEdit = () => {
@@ -22,11 +23,24 @@ export default function Profil() {
     try {
       const deletedUser = await axios.delete(
         `${import.meta.env.VITE_BACKEND_URL}/api/users/${deleteUser.id}`,
-        deleteUser
+        deletedUser
       );
-      setDeleteUser(deletedUser.data);
-      setUserConnected(null);
-      // setIsEditing(false);
+      setDeleteUser(deleteUser.id);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const userUpdated = await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/${userUpdate.id}`,
+        userUpdate
+      );
+
+      setUserConnected(userUpdated.data);
+      setIsEditing(false);
     } catch (err) {
       console.error(err);
     }
@@ -48,14 +62,32 @@ export default function Profil() {
                   role="presentation"
                 />
               )}
+
+              <TiEdit size={30} onClick={handleEdit} />
+
               {!isEditing ? (
-                <div className="pseudo-user">
+                <form id="form" className="pseudo-user" onSubmit={handleSubmit}>
                   <h1>{userConnected.pseudo}</h1>
-                  <TiEdit size={30} onClick={handleEdit} />
-                </div>
+                </form>
               ) : (
-                <div className="edit-user">
-                  <input className="input-edit" type="text" />
+                <form id="form" className="edit-user" onSubmit={handleSubmit}>
+                  <input
+                    className="input-edit"
+                    type="text"
+                    value={userUpdate.pseudo}
+                    onChange={(event) =>
+                      setUserUpdate({
+                        ...userUpdate,
+                        pseudo: event.target.value,
+                      })
+                    }
+                  />
+
+                  <div className="edit-profil">
+                    <button className="saveprofil" type="submit">
+                      Enregistrer
+                    </button>
+                  </div>
                   <div className="delete-user-profile">
                     <button
                       className="delete"
@@ -65,21 +97,28 @@ export default function Profil() {
                       <NavLink to="/">Supprimer le profil</NavLink>
                     </button>
                   </div>
-                </div>
+                </form>
               )}
 
-              <div className="preference-user">
-                <h2>Ton artiste préféré</h2>
-                <p>{userConnected.favorite_artiste}</p>
-                <h2>Ton album préféré</h2>
-                <p>{userConnected.favorite_album}</p>
-              </div>
-
-              <div className="logout-button">
-                <button onClick={handlelogout} type="submit" className="logout">
-                  <NavLink to="/">Se déconnecter</NavLink>
-                </button>
-              </div>
+              {!isEditing && (
+                <div className="preference-user">
+                  <h2>Ton artiste préféré</h2>
+                  <p>{userConnected.favorite_artiste}</p>
+                  <h2>Ton album préféré</h2>
+                  <p>{userConnected.favorite_album}</p>
+                </div>
+              )}
+              {!isEditing && (
+                <div className="logout-button">
+                  <button
+                    onClick={handlelogout}
+                    type="submit"
+                    className="logout"
+                  >
+                    <NavLink to="/">Se déconnecter</NavLink>
+                  </button>
+                </div>
+              )}
             </div>
           ) : null}
         </div>

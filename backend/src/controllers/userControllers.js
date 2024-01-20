@@ -37,13 +37,10 @@ const read = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
-  const { pseudo, email, password, image, favorite_artiste, favorite_album } =
-    req.body;
+  const { pseudo, image, favorite_artiste, favorite_album } = req.body;
   const updatedUsers = {
     id: req.params.id,
     pseudo,
-    email,
-    password,
     image,
     favorite_artiste,
     favorite_album,
@@ -54,7 +51,7 @@ const edit = async (req, res, next) => {
       res.status(404).send("Users not found");
     } else {
       const result = await tables.user.update(updatedUsers);
-      res.status(200).json({ result });
+      res.status(200).json(updatedUsers);
     }
   } catch (err) {
     next(err);

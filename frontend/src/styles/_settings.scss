@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;1,200;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap");
+
+:root {
+  /* Colors */
+  --primary-color: #ffffff;
+  --secondary-color: #000000;
+
+  /* font-family */
+  --font-style-text: "Montserrat", sans-serif;
+  --font-style-main-title: "Metal Mania", sans-serif;
+
+  /* font-weight */
+
+  --font-weight-text: 400;
+  --font-weight-text-bold: 500;
+
+  /* font-size */
+  --font-size-standard: 1.25rem; /* 20px */
+  --font-size-title: calc(var(--font-size-standard) * 2);
+}
+
+body {
+  background-image: url("./images/background2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: var(--font-style-text);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--primary-color);
+}

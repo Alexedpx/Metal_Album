@@ -16,7 +16,7 @@ const authControllers = require("./controllers/authControllers");
 // Route to get a list of items
 router.get("/albums", albumControllers.browse);
 router.get("/users", userControllers.browse);
-router.get("/usersbytoken", userControllers.read);
+// router.get("/usersbytoken", userControllers.read);
 
 
 

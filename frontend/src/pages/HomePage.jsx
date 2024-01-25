@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar.jsx";
-// import { FontAwesomeIcon } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 export default function HomePage() {
   const [metalalbum, setMetalalbum] = useState([]);
@@ -37,8 +37,6 @@ export default function HomePage() {
     <div>
       <Navbar />
       <div className="header-text">
-        {/* <h1>Thunder Pulse</h1> */}
-
         <h2>Une envie de découvrir un artiste ?</h2>
 
         <div className="search">
@@ -93,13 +91,13 @@ export default function HomePage() {
                 <img src={`${import.meta.env.VITE_BACKEND_URL}${item.image}`} />
 
                 <div className="text-overlay">
-                  <h3>{item.nom_album}</h3>
-
+                  <NavLink to={`/albums/${item.id}`}>
+                    <h3>{item.nom_album}</h3>
+                  </NavLink>
                   <ul className="titre">
                     {item.titre_chanson.split(",").map((titre, index) => (
                       <li key={index}>
                         <p>{titre.trim()}</p>
-                        {/* <FontAwesomeIcon style={{ color: "#852f29" }} /> */}
                       </li>
                     ))}
                   </ul>

@@ -1,0 +1,65 @@
+.background2 {
+    position: absolute;
+    background-image: url("/images/background-desktop.png");
+
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+}
+.header {
+  padding: 3%;
+
+  h1 {
+    font-size: calc(var(--font-size-standard) * 3);
+  }
+}
+
+.catching-title {
+  display: flex;
+  justify-content: end;
+  padding-right: 15%;
+  padding-top: 5%;
+
+  span,
+  h2 {
+    font-size: calc(var(--font-size-standard) * 2);
+  }
+}
+
+.presentation-text {
+  display: flex;
+  padding-left: 15%;
+  width: 30%;
+
+  h3 {
+    font-size: calc(var(--font-size-standard) * 1.5);
+  }
+}
+
+.btn-setSignin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  .btn-intro {
+    cursor: pointer;
+    border-radius: 50px;
+
+    font-family: var(--font-style-text);
+    font-weight: bold;
+    width: 15vw;
+    height: 3.5vw;
+    font-size: calc(var(--font-size-standard) * 1.5);
+    background-image: linear-gradient(
+      to right,
+      #242424ee 0%,
+      rgba(0, 0, 0, 0.918) 100%
+    );
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+    }
+  }
+}

@@ -63,7 +63,11 @@ export default function Profil() {
                 />
               )}
 
-              <TiEdit size={30} onClick={handleEdit} />
+              <TiEdit
+                size={30}
+                className="editIcon"
+                onClick={handleEdit}
+              />
 
               {!isEditing ? (
                 <form id="form" className="pseudo-user" onSubmit={handleSubmit}>
@@ -94,7 +98,7 @@ export default function Profil() {
                       type="submit"
                       onClick={() => handleDeleteProfil(deleteUser.id)}
                     >
-                      <NavLink to="/">Supprimer le profil</NavLink>
+                      <NavLink to="/">Supprimer le profil ?</NavLink>
                     </button>
                   </div>
                 </form>

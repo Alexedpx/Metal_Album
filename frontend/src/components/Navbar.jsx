@@ -1,6 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 import { NavLink, useNavigate } from "react-router-dom";
 import userContext from "../context/userContext";
 import { useContext } from "react";
+
 
 export default function Navbar() {
   const { userConnected } = useContext(userContext);
@@ -9,7 +11,7 @@ export default function Navbar() {
   const handleProfile = () => {
     navigate("/profil");
   };
-
+ 
   return (
     <div className="container-navbar">
       <NavLink to="/">
@@ -21,6 +23,7 @@ export default function Navbar() {
           <>
             <div className="user-profile">
               <p>{userConnected.pseudo}</p>
+
               {userConnected.image && (
                 <img
                   src={`${import.meta.env.VITE_BACKEND_URL}${

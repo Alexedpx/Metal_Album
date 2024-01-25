@@ -5,7 +5,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: rgba(95, 3, 3, 0.454);
+  
+  background-image: linear-gradient(to right, #5c0101a9 0%, rgba(48, 4, 4, 0.599) 100%);
 
   .login-container {
     display: flex;
@@ -15,13 +16,20 @@
 
     .user-profile {
       display: flex;
+
       flex-direction: column-reverse;
       p {
+        margin-top: 5px;
         font-weight: bold;
         text-align: center;
+        font-size: calc(var(--font-size-standard) * 1);
       }
       img {
-        width: 12vh;
+        width: 10vh;
+        height: 10vh; 
+        border-radius: 50%; 
+        margin-top: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       }
     }
     a {

@@ -1,7 +1,9 @@
 import HomePage from "./pages/HomePage.jsx";
 import Inscription from "./pages/Inscription.jsx";
 import Connexion from "./pages/Connexion.jsx";
+import AlbumDetails from "./pages/AlbumDetails.jsx";
 import Profil from "./pages/Profil.jsx";
+import Intro from "./pages/Intro.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./styles/index.scss";
 import userContext from "./context/userContext";
@@ -12,7 +14,13 @@ export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <Intro />,
+      
+    },
+    {
+      path: "/accueil",
       element: <HomePage />,
+      
     },
 
     { path: "/signin", element: <Inscription /> },
@@ -25,7 +33,11 @@ export default function App() {
     {
       path: "/profil",
       element: <Profil />,
-    }
+    },
+    {
+      path: "/albums/:id",
+      element: <AlbumDetails />,
+    },
   ]);
 
   return (

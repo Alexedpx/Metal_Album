@@ -1,8 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Navbar from "../components/Navbar";
-import { useState, useContext } from "react";
-import userContext from "../context/userContext";
+import { useState } from "react";
+// import userContext from "../context/userContext";
 
 export default function Inscription() {
   const navigate = useNavigate();
@@ -39,8 +39,7 @@ export default function Inscription() {
   };
 
   return (
-    <>
-      <Navbar />
+    <div className="background">
       <div className="container-signin">
         <div className="signin-wrapper">
           <h1>Inscrivez-vous pour créer votre playlist !</h1>
@@ -89,6 +88,6 @@ export default function Inscription() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -10,6 +10,7 @@ export default function Profil() {
   const [deleteUser, setDeleteUser] = useState(userConnected);
   const [userUpdate, setUserUpdate] = useState(userConnected);
   const [isEditing, setIsEditing] = useState(false);
+  
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -30,7 +31,7 @@ export default function Profil() {
       console.error(err);
     }
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -41,6 +42,7 @@ export default function Profil() {
 
       setUserConnected(userUpdated.data);
       setIsEditing(false);
+      
     } catch (err) {
       console.error(err);
     }
@@ -108,6 +110,7 @@ export default function Profil() {
                 <div className="preference-user">
                   <h2>Ton artiste préféré</h2>
                   <p>{userConnected.favorite_artiste}</p>
+                  {/* <p>{userConnected.birthdate {substring(0, 10)}}</p> */}
                   <h2>Ton album préféré</h2>
                   <p>{userConnected.favorite_album}</p>
                 </div>

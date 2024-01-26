@@ -1,6 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Navbar from "../components/Navbar";
 import { useState, useContext } from "react";
 import userContext from "../context/userContext";
 
@@ -31,15 +30,14 @@ export default function Connexion() {
       );
 
       setUserConnected(dataUser.data);
-      navigate("/profil");
+      navigate("/accueil");
     } catch (error) {
       alert("identifiants incorrect, veuillez réessayer");
     }
   };
 
   return (
-    <>
-      <Navbar />
+    <div className="background">
       <div className="container-login">
         <div className="login-wrapper">
           <h1>Connectez-vous</h1>
@@ -83,6 +81,6 @@ export default function Connexion() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }

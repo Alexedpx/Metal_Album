@@ -7,13 +7,14 @@ class userManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create({ pseudo, email, hashed_password, image }) {
+  async create({ pseudo, email,hashed_password, birthdate,  image }) {
     const [result] = await this.database.query(
       `insert into ${this.table} ( pseudo,
         email,
         hashed_password,
-        image ) values (?,?,?,?)`,
-      [pseudo, email, hashed_password, image]
+        birthdate,
+        image ) values (?,?,?,?,?)`,
+      [pseudo, email, hashed_password, birthdate, image]
     );
 
     return result;
@@ -36,10 +37,18 @@ class userManager extends AbstractManager {
 
   // The U of CRUD - Update operation
 
-  async update({ id, pseudo, image, favorite_artiste, favorite_album }) {
+  async update({
+    id,
+    pseudo,
+    email,
+    birthdate,
+    image,
+    favorite_artiste,
+    favorite_album,
+  }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET pseudo=?, image=?, favorite_artiste=?, favorite_album=? WHERE id=?`,
-      [pseudo, image, favorite_artiste, favorite_album, id]
+      `UPDATE ${this.table} SET pseudo=?, email=?, birthdate=?, image=?, favorite_artiste=?, favorite_album=? WHERE id=?`,
+      [pseudo, email, birthdate, image, favorite_artiste, favorite_album, id]
     );
     return result;
   }

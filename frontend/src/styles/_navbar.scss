@@ -1,35 +1,51 @@
 .container-navbar {
-  border-bottom: 1px solid rgb(255, 255, 255);
-  height: 16vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  
-  background-image: linear-gradient(to right, #5c0101a9 0%, rgba(48, 4, 4, 0.599) 100%);
+  height: 100vh;
+  width: 20vw;
+  background-color: rgba(0, 0, 0, 0.83);
 
   .login-container {
     display: flex;
-    padding-right: 7vh;
-    gap: 5vh;
-    cursor: pointer;
+    align-items: center;
+    padding: 8%;
+    
+    img {
+      width: 7vw;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+    .logout-button {
+      a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: calc(var(--font-size-standard) * 0.8);
+        font-family: var(--font-style-text);
+      }
 
+      .logout {
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+        border: 3px solid transparent;
+        background-color: rgba(29, 29, 29, 0.941);
+        box-shadow:
+          3px 3px 6px rgba(0, 0, 0, 0.5),
+          -1px -1px 4px rgba(105, 105, 105, 0.5);
+        width: 8vw;
+        padding: 10px;
+        border-radius: 50px;
+      }
+    }
     .user-profile {
-      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
 
-      flex-direction: column-reverse;
+      display: flex;
       p {
-        margin-top: 5px;
         font-weight: bold;
         text-align: center;
-        font-size: calc(var(--font-size-standard) * 1);
-      }
-      img {
-        width: 10vh;
-        height: 10vh; 
-        border-radius: 50%; 
-        margin-top: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        font-size: calc(var(--font-size-standard) * 1.2);
       }
     }
     a {

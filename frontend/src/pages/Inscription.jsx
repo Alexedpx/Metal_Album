@@ -9,6 +9,7 @@ export default function Inscription() {
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  // const [inscription, setInscription] = useState("");
 
   const toggleMotDePasseVisibility = () => {
     setMotDePasseVisible(!motDePasseVisible);
@@ -30,12 +31,16 @@ export default function Inscription() {
       );
 
       if (dataUser.status === 201) {
-        alert("inscription réussie!");
+        alert("Inscription réussie !");
+        setTimeout(() => {
+          navigate("/login");
+        }, 1800);
+        
       }
     } catch (error) {
       console.error(error.message);
     }
-    navigate("/login");
+    
   };
 
   return (
@@ -47,7 +52,19 @@ export default function Inscription() {
             Déjà inscrit sur ThunderPulse ? <br></br>
             <NavLink to="/login">Connexion</NavLink>
           </p>
-
+          {/* {inscription && (
+            <p
+              style={{
+                position: "absolute",
+                color: "black",
+                fontSize: "20px",
+                fontFamily: "var(--font-style-text)",
+                fontWeight: "bold",
+              }}
+            >
+              {inscription}
+            </p>
+          )} */}
           <form onSubmit={handleInscription} className="form-signin">
             <p>Adresse e-mail</p>
             <input

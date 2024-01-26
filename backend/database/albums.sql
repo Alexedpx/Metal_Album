@@ -17,25 +17,19 @@ CREATE TABLE
 );
 
 CREATE TABLE user (
-    id INT primary key auto_increment NOT NULL, 
-    pseudo VARCHAR(80) NOT NULL, 
-    email VARCHAR(80) NOT NULL, 
-    hashed_password VARCHAR(250) NOT NULL, 
-    image VARCHAR(250) NOT NULL, 
-    favorite_artiste VARCHAR(250) NULL, 
-    favorite_album VARCHAR(250) NULL
+    id INT primary key auto_increment NOT NULL, pseudo VARCHAR(80) NOT NULL, email VARCHAR(80) NOT NULL, birthdate DATE NULL, hashed_password VARCHAR(250) NOT NULL, image VARCHAR(250) NOT NULL, favorite_artiste VARCHAR(250) NULL, favorite_album VARCHAR(250) NULL
 );
 
 INSERT INTO
     user (
-        pseudo, email, hashed_password, image, favorite_artiste, favorite_album
+        pseudo, email, birthdate, hashed_password, image, favorite_artiste, favorite_album
     )
 VALUES (
-        'Alexe', 'alexe@gmail.com', '$argon2id$v=19$m=19456,t=2,p=1$vv24RaicrmFh4xVafigIRQ$4EFnHhgFO5JEtjVHt+7XdgoUSMme0aFDsl1NtIVhtQ0', '/images/headphone.jpg', 'Slipknot', 'The End, So Far'
+        'Alexe', 'alexe@gmail.com', '1993-05-05', '$argon2id$v=19$m=19456,t=2,p=1$vv24RaicrmFh4xVafigIRQ$4EFnHhgFO5JEtjVHt+7XdgoUSMme0aFDsl1NtIVhtQ0', '/images/Avatar.JPG', 'Slipknot', 'The End, So Far'
     ),
 
 (
-    'Vince', 'vince@gmail.com', '$argon2id$v=19$m=19456,t=2,p=1$vv24RaicrmFh4xVafigIRQ$4EFnHhgFO5JEtjVHt+7XdgoUSMme0aFDsl1NtIVhtQ0', '/images/Avatar.png', 'Metallica', 'Black Album'
+    'Vince', 'vince@gmail.com', '1990-04-29', '$argon2id$v=19$m=19456,t=2,p=1$vv24RaicrmFh4xVafigIRQ$4EFnHhgFO5JEtjVHt+7XdgoUSMme0aFDsl1NtIVhtQ0', '/images/Avatar.png', 'Metallica', 'Black Album'
 );
 
 INSERT INTO

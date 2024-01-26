@@ -36,8 +36,7 @@ export default function HomePage() {
   return (
     <div>
       <Navbar />
-      <div className="header-text">
-        <h2>Une envie de découvrir un artiste ?</h2>
+      {/* <div className="header-text">
 
         <div className="search">
           <input
@@ -106,6 +105,7 @@ export default function HomePage() {
             </div>
           ))}
       </div>
-    </div>
+     */}
+     </div>
   );
 }

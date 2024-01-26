@@ -28,12 +28,13 @@ const login = async (req, res, next) => {
 
 const signin = async (req, res, next) => {
   try {
-    const { pseudo, email, hashed_password, image } = req.body;
+    const { pseudo, email, hashed_password, birthdate, image } = req.body;
 
     const result = await tables.user.create({
       pseudo,
       email,
       hashed_password,
+      birthdate,
       image,
     });
     if (result.insertId) {
@@ -42,6 +43,7 @@ const signin = async (req, res, next) => {
         pseudo,
         email,
         hashed_password,
+        birthdate,
         image,
       };
       res.status(201).json(newUser);

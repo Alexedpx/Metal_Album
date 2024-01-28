@@ -1,14 +1,22 @@
 .container-navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
   height: 100vh;
   width: 20vw;
-  background-color: rgba(0, 0, 0, 0.83);
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.973);
+ 
+
+
 
   .login-container {
     display: flex;
     align-items: center;
     padding: 8%;
-    
+
     img {
+    
       width: 7vw;
       border-radius: 50%;
       border: 2px solid white;
@@ -27,8 +35,7 @@
         color: white;
         border: 3px solid transparent;
         background-color: rgba(29, 29, 29, 0.941);
-        box-shadow:
-          3px 3px 6px rgba(0, 0, 0, 0.5),
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
           -1px -1px 4px rgba(105, 105, 105, 0.5);
         width: 8vw;
         padding: 10px;
@@ -63,5 +70,35 @@
   .logo {
     padding-left: 5vh;
     width: 160px;
+  }
+
+  .navlink {
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+    align-items: start;
+    padding: 20%;
+
+    .accueil-container {
+      display: flex;
+      gap: 10%;
+      width: 100%;
+
+      align-items: center;
+      img {
+        width: 1vw;
+        height: 1vw;
+      }
+
+      h1 {
+        font-size: calc(var(--font-size-standard) * 0.8);
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
   }
 }

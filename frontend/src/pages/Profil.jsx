@@ -110,12 +110,12 @@ export default function Profil() {
                 <div className="preference-user">
                   <h2>Ton artiste préféré</h2>
                   <p>{userConnected.favorite_artiste}</p>
-                  {/* <p>{userConnected.birthdate {substring(0, 10)}}</p> */}
+                  
                   <h2>Ton album préféré</h2>
                   <p>{userConnected.favorite_album}</p>
                 </div>
               )}
-              {!isEditing && (
+              {/* {!isEditing && (
                 <div className="logout-button">
                   <button
                     onClick={handlelogout}
@@ -125,13 +125,11 @@ export default function Profil() {
                     <NavLink to="/">Se déconnecter</NavLink>
                   </button>
                 </div>
-              )}
+              )} */}
             </div>
           ) : null}
         </div>
-        <div className="playlist-wrapper">
-          <h1>Ma Playlist</h1>
-        </div>
+      
       </div>
     </>
   );

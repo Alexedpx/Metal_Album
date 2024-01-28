@@ -22,7 +22,7 @@ export default function Inscription() {
       pseudo: inputPseudo,
       email: inputEmail,
       password: inputPassword,
-      image: `/images/Avatar.png`,
+      image: `/images/Avatar.JPG`,
     };
     try {
       const dataUser = await axios.post(

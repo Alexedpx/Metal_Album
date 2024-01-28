@@ -37,13 +37,13 @@ const read = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
-  const { pseudo, email, birthdate, image, favorite_artiste, favorite_album } =
+  const { pseudo, email, image, favorite_artiste, favorite_album } =
     req.body;
   const updatedUsers = {
     id: req.params.id,
     pseudo,
     email,
-    birthdate,
+   
     image,
     favorite_artiste,
     favorite_album,

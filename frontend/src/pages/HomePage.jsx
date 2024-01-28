@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar.jsx";
+
 import { NavLink } from "react-router-dom";
 
 export default function HomePage() {
@@ -36,76 +37,72 @@ export default function HomePage() {
   return (
     <div>
       <Navbar />
-      {/* <div className="header-text">
 
-        <div className="search">
-          <input
-            type="text"
-            name="filterName"
-            value={filterName}
-            className="search__input"
-            placeholder="rechercher un album"
-            onChange={handleInput}
-          />
-          <div className="genre">
-            <select
-              name="genre"
-              value={selectedGenre}
+      <div className="homepage-wrapper">
+        <div className="hero-wrapper">
+          <h1>
+            Thunder <span style={{ color: "#955DDC" }}>Pulse</span>
+          </h1>
+          <div className="search">
+            <input
+              type="text"
+              name="filterName"
+              value={filterName}
+              className="search__input"
+              placeholder="rechercher un album"
               onChange={handleInput}
-              className="selectgenre"
-            >
-              <option value="">Tous les genres</option>
-              <option value="heavymetal">Heavy Metal</option>
-              <option value="metalcore">MetalCore</option>
-              <option value="hardcore">Hardcore</option>
-              <option value="hardrock">Hard Rock</option>
-              <option value="metalprogressif">Metal Progressif</option>
-              <option value="numetal">Nu Metal</option>
-              <option value="stoner">Stoner</option>
-            </select>
+            />
+            <div className="genre">
+              <select
+                name="genre"
+                value={selectedGenre}
+                onChange={handleInput}
+                className="selectgenre"
+              >
+                <option value="">Tous les genres</option>
+                <option value="heavymetal">Heavy Metal</option>
+                <option value="metalcore">MetalCore</option>
+                <option value="hardcore">Hardcore</option>
+                <option value="hardrock">Hard Rock</option>
+                <option value="metalprogressif">Metal Progressif</option>
+                <option value="numetal">Nu Metal</option>
+                <option value="stoner">Stoner</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div className="display-albums-container">
+          <h2>MES ALBUMS</h2>
+          <div className="album-list">
+            {metalalbum
+              .filter((albums) => {
+                const nameFilter =
+                  filterName === "" ||
+                  (albums.nom_groupe?.toLowerCase() || "").includes(
+                    filterName.toLowerCase()
+                  );
+
+                const genreFilter =
+                  selectedGenre === "" ||
+                  (albums.genre?.toLowerCase() || "") ===
+                    selectedGenre.toLowerCase();
+
+                return nameFilter && genreFilter;
+              })
+              .map((item) => (
+                <div key={item.id} className="album-container">
+                  <div className="img-album">
+                    <img
+                      src={`${import.meta.env.VITE_BACKEND_URL}${item.image}`}
+                      alt={item.nom_album}
+                    />
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>
-
-      <div className="display-albums-container">
-        {metalalbum
-          .filter((albums) => {
-            const nameFilter =
-              filterName === "" ||
-              (albums.nom_groupe?.toLowerCase() || "").includes(
-                filterName.toLowerCase()
-              );
-
-            const genreFilter =
-              selectedGenre === "" ||
-              (albums.genre?.toLowerCase() || "") ===
-                selectedGenre.toLowerCase();
-
-            return nameFilter && genreFilter;
-          })
-
-          .map((item) => (
-            <div key={item.id} className="album-container">
-              <div className="img-album">
-                <img src={`${import.meta.env.VITE_BACKEND_URL}${item.image}`} />
-
-                <div className="text-overlay">
-                  <NavLink to={`/albums/${item.id}`}>
-                    <h3>{item.nom_album}</h3>
-                  </NavLink>
-                  <ul className="titre">
-                    {item.titre_chanson.split(",").map((titre, index) => (
-                      <li key={index}>
-                        <p>{titre.trim()}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          ))}
-      </div>
-     */}
-     </div>
+    </div>
   );
 }
